@@ -290,6 +290,13 @@ module.exports = function(webpackEnv) {
         // Support React Native Web
         // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
         'react-native': 'react-native-web',
+        'asset': path.join(__dirname,'../src/asset'),
+        'components': path.join(__dirname,'../src/components'),
+        'pages': path.join(__dirname,'../src/pages'),
+        'router':path.join(__dirname,'../src/router'),
+        'store': path.join(__dirname,'../src/store'),
+        'style': path.join(__dirname,'../src/style'),
+        'utils': path.join(__dirname,'../src/utils')
       },
       plugins: [
         // Adds support for installing with Plug'n'Play, leading to faster installs and adding
@@ -362,6 +369,7 @@ module.exports = function(webpackEnv) {
                 ),
                 
                 plugins: [
+                  ['import',{'libraryName':'antd','style':true}], //按需引入
                   [
                     require.resolve('babel-plugin-named-asset-import'),
                     {
